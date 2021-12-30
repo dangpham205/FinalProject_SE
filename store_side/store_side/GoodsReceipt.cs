@@ -94,21 +94,6 @@ namespace store_side
             {
                 try
                 {
-                    foreach (DataGridViewRow r in productTable.Rows)
-                    {
-                        try
-                        {
-                            if (r.Cells[0].Value.ToString().Equals(productID.Text))
-                            {
-                                MessageBox.Show("Can not update because this ID already existed");
-                                return;
-                            }
-                        }
-                        catch (NullReferenceException)
-                        {
-
-                        }
-                    }
                     int rowId = productTable.CurrentCell.RowIndex;
                     DataGridViewRow row = productTable.Rows[rowId];
                     if (productID.Text != "" && productName.Text != "" && productUnit.Text != "" && productPrice.Text != "")
