@@ -35,7 +35,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.productName = new System.Windows.Forms.TextBox();
-            this.productPrice = new System.Windows.Forms.TextBox();
+            this.productCost = new System.Windows.Forms.TextBox();
             this.productUnit = new System.Windows.Forms.TextBox();
             this.productID = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -44,15 +44,18 @@
             this.label3 = new System.Windows.Forms.Label();
             this.backButton = new System.Windows.Forms.Button();
             this.productTable = new System.Windows.Forms.DataGridView();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.addReceiptButton = new System.Windows.Forms.Button();
             this.deleteProductButton = new System.Windows.Forms.Button();
             this.addProductButton = new System.Windows.Forms.Button();
             this.tableAdapterManager1 = new store_side.cnpmDataSetTableAdapters.TableAdapterManager();
             this.updateProductButton = new System.Windows.Forms.Button();
+            this.label7 = new System.Windows.Forms.Label();
+            this.productPrice = new System.Windows.Forms.TextBox();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.A = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.productTable)).BeginInit();
@@ -107,8 +110,10 @@
             // groupBox2
             // 
             this.groupBox2.BackColor = System.Drawing.Color.Gainsboro;
-            this.groupBox2.Controls.Add(this.productName);
             this.groupBox2.Controls.Add(this.productPrice);
+            this.groupBox2.Controls.Add(this.label7);
+            this.groupBox2.Controls.Add(this.productName);
+            this.groupBox2.Controls.Add(this.productCost);
             this.groupBox2.Controls.Add(this.productUnit);
             this.groupBox2.Controls.Add(this.productID);
             this.groupBox2.Controls.Add(this.label6);
@@ -127,21 +132,21 @@
             this.productName.Location = new System.Drawing.Point(329, 51);
             this.productName.Name = "productName";
             this.productName.Size = new System.Drawing.Size(235, 22);
-            this.productName.TabIndex = 7;
+            this.productName.TabIndex = 5;
             // 
-            // productPrice
+            // productCost
             // 
-            this.productPrice.Location = new System.Drawing.Point(329, 118);
-            this.productPrice.Name = "productPrice";
-            this.productPrice.Size = new System.Drawing.Size(235, 22);
-            this.productPrice.TabIndex = 6;
+            this.productCost.Location = new System.Drawing.Point(226, 118);
+            this.productCost.Name = "productCost";
+            this.productCost.Size = new System.Drawing.Size(111, 22);
+            this.productCost.TabIndex = 7;
             // 
             // productUnit
             // 
             this.productUnit.Location = new System.Drawing.Point(72, 118);
             this.productUnit.Name = "productUnit";
-            this.productUnit.Size = new System.Drawing.Size(148, 22);
-            this.productUnit.TabIndex = 5;
+            this.productUnit.Size = new System.Drawing.Size(63, 22);
+            this.productUnit.TabIndex = 6;
             // 
             // productID
             // 
@@ -153,11 +158,11 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(265, 121);
+            this.label6.Location = new System.Drawing.Point(176, 121);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(44, 17);
+            this.label6.Size = new System.Drawing.Size(40, 17);
             this.label6.TabIndex = 3;
-            this.label6.Text = "Price:";
+            this.label6.Text = "Cost:";
             // 
             // label5
             // 
@@ -206,7 +211,8 @@
             this.Column1,
             this.Column2,
             this.Column3,
-            this.Column4});
+            this.Column4,
+            this.A});
             this.productTable.Location = new System.Drawing.Point(59, 284);
             this.productTable.Name = "productTable";
             this.productTable.RowHeadersWidth = 51;
@@ -215,34 +221,6 @@
             this.productTable.TabIndex = 4;
             this.productTable.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.productTable_CellClick);
             // 
-            // Column1
-            // 
-            this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column1.HeaderText = "Product ID";
-            this.Column1.MinimumWidth = 6;
-            this.Column1.Name = "Column1";
-            // 
-            // Column2
-            // 
-            this.Column2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column2.HeaderText = "Product Name";
-            this.Column2.MinimumWidth = 6;
-            this.Column2.Name = "Column2";
-            // 
-            // Column3
-            // 
-            this.Column3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column3.HeaderText = "Unit";
-            this.Column3.MinimumWidth = 6;
-            this.Column3.Name = "Column3";
-            // 
-            // Column4
-            // 
-            this.Column4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column4.HeaderText = "Product Price (VNĐ)";
-            this.Column4.MinimumWidth = 6;
-            this.Column4.Name = "Column4";
-            // 
             // addReceiptButton
             // 
             this.addReceiptButton.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -250,9 +228,9 @@
             this.addReceiptButton.Name = "addReceiptButton";
             this.addReceiptButton.Size = new System.Drawing.Size(103, 62);
             this.addReceiptButton.TabIndex = 5;
-            this.addReceiptButton.Text = "ADD RECEIPT";
+            this.addReceiptButton.Text = "SAVE";
             this.addReceiptButton.UseVisualStyleBackColor = true;
-            this.addReceiptButton.Click += new System.EventHandler(this.addReceiptButton_Click);
+            this.addReceiptButton.Click += new System.EventHandler(this.saveButton_Click);
             // 
             // deleteProductButton
             // 
@@ -294,6 +272,57 @@
             this.updateProductButton.UseVisualStyleBackColor = true;
             this.updateProductButton.Click += new System.EventHandler(this.updateProductButton_Click);
             // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(376, 121);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(70, 17);
+            this.label7.TabIndex = 8;
+            this.label7.Text = "Sell price:";
+            // 
+            // productPrice
+            // 
+            this.productPrice.Location = new System.Drawing.Point(457, 118);
+            this.productPrice.Name = "productPrice";
+            this.productPrice.Size = new System.Drawing.Size(107, 22);
+            this.productPrice.TabIndex = 8;
+            // 
+            // Column1
+            // 
+            this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column1.HeaderText = "Product ID";
+            this.Column1.MinimumWidth = 6;
+            this.Column1.Name = "Column1";
+            // 
+            // Column2
+            // 
+            this.Column2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column2.HeaderText = "Product Name";
+            this.Column2.MinimumWidth = 6;
+            this.Column2.Name = "Column2";
+            // 
+            // Column3
+            // 
+            this.Column3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column3.HeaderText = "Unit";
+            this.Column3.MinimumWidth = 6;
+            this.Column3.Name = "Column3";
+            // 
+            // Column4
+            // 
+            this.Column4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column4.HeaderText = "Cost (VNĐ)";
+            this.Column4.MinimumWidth = 6;
+            this.Column4.Name = "Column4";
+            // 
+            // A
+            // 
+            this.A.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.A.HeaderText = "Sell Price (VNĐ)";
+            this.A.MinimumWidth = 6;
+            this.A.Name = "A";
+            // 
             // GoodsReceipt
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -329,7 +358,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.TextBox productName;
-        private System.Windows.Forms.TextBox productPrice;
+        private System.Windows.Forms.TextBox productCost;
         private System.Windows.Forms.TextBox productUnit;
         private System.Windows.Forms.TextBox productID;
         private System.Windows.Forms.Label label6;
@@ -342,10 +371,13 @@
         private System.Windows.Forms.Button deleteProductButton;
         private System.Windows.Forms.Button addProductButton;
         private cnpmDataSetTableAdapters.TableAdapterManager tableAdapterManager1;
+        private System.Windows.Forms.Button updateProductButton;
+        private System.Windows.Forms.TextBox productPrice;
+        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
-        private System.Windows.Forms.Button updateProductButton;
+        private System.Windows.Forms.DataGridViewTextBoxColumn A;
     }
 }

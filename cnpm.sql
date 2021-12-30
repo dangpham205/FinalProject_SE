@@ -20,13 +20,21 @@ create table receipt
 	receipt_name NVARCHAR(20) not null,
 )
 
-
 --Product
 create table product
 (
 	prod_id NVARCHAR(20) not null PRIMARY KEY,
 	prod_name NVARCHAR(20) not null,
 	prod_unit NVARCHAR(20) not null,
+	prod_cost INT not null,
 	prod_price INT not null,
 	prod_belong NVARCHAR(20)not null FOREIGN KEY REFERENCES receipt(receipt_id),
+)
+
+select * from receipt
+select * from product
+delete from receipt
+delete from product
+drop table receipt
+drop table product
 )

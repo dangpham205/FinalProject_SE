@@ -7,11 +7,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
 
 namespace store_side
 {
     public partial class GoodsReceipt : Form
     {
+        SqlConnection connection = new SqlConnection(@"Data Source=HAIDANG\SQLEXPRESS;Initial Catalog=cnpm;Integrated Security=True");
+        SqlCommand cmd;
+
         public GoodsReceipt()
         {
             InitializeComponent();
@@ -32,13 +36,16 @@ namespace store_side
                 productID.Text = row.Cells[0].Value.ToString();
                 productName.Text = row.Cells[1].Value.ToString();
                 productUnit.Text = row.Cells[2].Value.ToString();
-                productPrice.Text = row.Cells[3].Value.ToString();
+                productCost.Text = row.Cells[3].Value.ToString();
+                productPrice.Text = row.Cells[4].Value.ToString();
+
             }
             catch (NullReferenceException)
             {
                 productID.Text = "";
                 productName.Text = "";
                 productUnit.Text = "";
+                productCost.Text = "";
                 productPrice.Text = "";
             }
         }
@@ -64,7 +71,7 @@ namespace store_side
                 }
             }
             
-            if (productID.Text != "" && productName.Text != "" && productUnit.Text != "" && productPrice.Text != "")
+            if (productID.Text != "" && productName.Text != "" && productUnit.Text != "" && productCost.Text != "")
             {
                 int rowId = productTable.Rows.Add();
                 // Grab the new row
@@ -73,11 +80,13 @@ namespace store_side
                 row.Cells[0].Value = productID.Text;
                 row.Cells[1].Value = productName.Text;
                 row.Cells[2].Value = productUnit.Text;
-                row.Cells[3].Value = productPrice.Text;
+                row.Cells[3].Value = productCost.Text;
+                row.Cells[4].Value = productPrice.Text;
 
                 productID.Text = "";
                 productName.Text = "";
                 productUnit.Text = "";
+                productCost.Text = "";
                 productPrice.Text = "";
 
             }
@@ -96,16 +105,19 @@ namespace store_side
                 {
                     int rowId = productTable.CurrentCell.RowIndex;
                     DataGridViewRow row = productTable.Rows[rowId];
-                    if (productID.Text != "" && productName.Text != "" && productUnit.Text != "" && productPrice.Text != "")
+                    if (productID.Text != "" && productName.Text != "" && productUnit.Text != "" && productCost.Text != "")
                     {
                         row.Cells[0].Value = productID.Text;
                         row.Cells[1].Value = productName.Text;
                         row.Cells[2].Value = productUnit.Text;
-                        row.Cells[3].Value = productPrice.Text;
+                        row.Cells[3].Value = productCost.Text;
+                        row.Cells[4].Value = productPrice.Text;
+
 
                         productID.Text = "";
                         productName.Text = "";
                         productUnit.Text = "";
+                        productCost.Text = "";
                         productPrice.Text = "";
                     }
                     else
@@ -136,6 +148,7 @@ namespace store_side
                     productID.Text = "";
                     productName.Text = "";
                     productUnit.Text = "";
+                    productCost.Text = "";
                     productPrice.Text = "";
                 }
                 catch(InvalidOperationException )
@@ -150,10 +163,25 @@ namespace store_side
        
         }
 
-        private void addReceiptButton_Click(object sender, EventArgs e)
+        private void saveButton_Click(object sender, EventArgs e)
         {
-          
+            createProductRow();
+            
+            /*foreach (DataGridViewRow r in productTable.Rows)
+            {
+                connection.Open();
+                cmd = new SqlCommand("insert into product values('" + r.Cells[0].Value.ToString() +"', '" + r.Cells[1].Value.ToString() +"', '" + r.Cells[2].Value.ToString() +"', " +
+                    "'" +  Int32.Parse(r.Cells[3].Value.ToString()) + "', '" + Int32.Parse(r.Cells[4].Value.ToString()) + "' , )", connection);
+            }*/
         }
 
+        private void createProductRow()
+        {
+            SqlConnection connection = new SqlConnection(@"Data Source=HAIDANG\SQLEXPRESS;Initial Catalog=cnpm;Integrated Security=True");
+            SqlDataAdapter adapter = new SqlDataAdapter("select COUNT(*) from product  ", connection);
+            DataTable dataTable = new DataTable();
+            adapter.Fill(dataTable);
+            
+        }
     }
 }
