@@ -10,3 +10,15 @@ C:\Users\Admin\Desktop\Study\3RD Công Nghệ Phần Mềm\cúi kì\store_side\s
 C:\Users\Admin\Desktop\Study\3RD Công Nghệ Phần Mềm\cúi kì\store_side\store_side\obj\Debug\store_side.LogIn.resources
 C:\Users\Admin\Desktop\Study\3RD Công Nghệ Phần Mềm\cúi kì\store_side\store_side\obj\Debug\store_side.Main.resources
 C:\Users\Admin\Desktop\Study\3RD Công Nghệ Phần Mềm\cúi kì\store_side\store_side\obj\Debug\store_side.GoodsReceipt.resources
+C:\Users\Admin\Desktop\FinalProject_SE-main\store_side\store_side\bin\Debug\store_side.exe.config
+C:\Users\Admin\Desktop\FinalProject_SE-main\store_side\store_side\bin\Debug\store_side.exe
+C:\Users\Admin\Desktop\FinalProject_SE-main\store_side\store_side\bin\Debug\store_side.pdb
+C:\Users\Admin\Desktop\FinalProject_SE-main\store_side\store_side\obj\Debug\store_side.csprojAssemblyReference.cache
+C:\Users\Admin\Desktop\FinalProject_SE-main\store_side\store_side\obj\Debug\store_side.GoodsReceipt.resources
+C:\Users\Admin\Desktop\FinalProject_SE-main\store_side\store_side\obj\Debug\store_side.LogIn.resources
+C:\Users\Admin\Desktop\FinalProject_SE-main\store_side\store_side\obj\Debug\store_side.Main.resources
+C:\Users\Admin\Desktop\FinalProject_SE-main\store_side\store_side\obj\Debug\store_side.Properties.Resources.resources
+C:\Users\Admin\Desktop\FinalProject_SE-main\store_side\store_side\obj\Debug\store_side.csproj.GenerateResource.cache
+C:\Users\Admin\Desktop\FinalProject_SE-main\store_side\store_side\obj\Debug\store_side.csproj.CoreCompileInputs.cache
+C:\Users\Admin\Desktop\FinalProject_SE-main\store_side\store_side\obj\Debug\store_side.exe
+C:\Users\Admin\Desktop\FinalProject_SE-main\store_side\store_side\obj\Debug\store_side.pdb
