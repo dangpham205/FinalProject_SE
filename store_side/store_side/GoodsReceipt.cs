@@ -45,24 +45,30 @@ namespace store_side
 
         private void addProductButton_Click(object sender, EventArgs e)
         {
+            if(productTable.RowCount >1)
+            {
+                foreach (DataGridViewRow r in productTable.Rows)
+                {
+                    try
+                    {
+                        if (r.Cells[0].Value.ToString().Equals(productID.Text))
+                        {
+                            MessageBox.Show("Can not add because this ID already existed");
+                            return;
+                        }
+                    }
+                    catch (NullReferenceException)
+                    {
+
+                    }
+                }
+            }
+            
             if (productID.Text != "" && productName.Text != "" && productUnit.Text != "" && productPrice.Text != "")
             {
                 int rowId = productTable.Rows.Add();
                 // Grab the new row
                 DataGridViewRow row = productTable.Rows[rowId];
-
-
-                foreach (DataGridViewRow r in productTable.Rows)
-                {
-                    if (r.Cells[0].Value.ToString() == productID.Text)
-                    {
-                        MessageBox.Show("This ID already existed");
-                    }
-                    else
-                    {
-
-                    }
-                }
 
                 row.Cells[0].Value = productID.Text;
                 row.Cells[1].Value = productName.Text;
@@ -73,6 +79,7 @@ namespace store_side
                 productName.Text = "";
                 productUnit.Text = "";
                 productPrice.Text = "";
+
             }
             else
             {
@@ -87,6 +94,21 @@ namespace store_side
             {
                 try
                 {
+                    foreach (DataGridViewRow r in productTable.Rows)
+                    {
+                        try
+                        {
+                            if (r.Cells[0].Value.ToString().Equals(productID.Text))
+                            {
+                                MessageBox.Show("Can not update because this ID already existed");
+                                return;
+                            }
+                        }
+                        catch (NullReferenceException)
+                        {
+
+                        }
+                    }
                     int rowId = productTable.CurrentCell.RowIndex;
                     DataGridViewRow row = productTable.Rows[rowId];
                     if (productID.Text != "" && productName.Text != "" && productUnit.Text != "" && productPrice.Text != "")
@@ -119,13 +141,17 @@ namespace store_side
 
         private void deleteProductButton_Click(object sender, EventArgs e)
         {
-            
             if (productTable.RowCount > 1)
             {
                 try
                 {
                     int rowId = productTable.CurrentCell.RowIndex;
                     productTable.Rows.RemoveAt(rowId);
+
+                    productID.Text = "";
+                    productName.Text = "";
+                    productUnit.Text = "";
+                    productPrice.Text = "";
                 }
                 catch(InvalidOperationException )
                 {
