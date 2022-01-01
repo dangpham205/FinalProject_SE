@@ -28,7 +28,7 @@ create table product
 	prod_unit NVARCHAR(20) not null,
 	prod_cost INT not null,
 	prod_price INT not null,
-	prod_belong NVARCHAR(20)not null FOREIGN KEY REFERENCES receipt(receipt_id),
+	prod_belong NVARCHAR(20),
 )
 
 select * from receipt
