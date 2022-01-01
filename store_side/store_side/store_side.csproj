@@ -51,6 +51,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>cnpmDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="GoodsDelivery.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GoodsDelivery.Designer.cs">
+      <DependentUpon>GoodsDelivery.cs</DependentUpon>
+    </Compile>
     <Compile Include="GoodsReceipt.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -77,6 +83,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="GoodsDelivery.resx">
+      <DependentUpon>GoodsDelivery.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GoodsReceipt.resx">
       <DependentUpon>GoodsReceipt.cs</DependentUpon>
     </EmbeddedResource>

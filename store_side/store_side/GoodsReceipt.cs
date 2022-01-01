@@ -30,22 +30,29 @@ namespace store_side
 
         private void productTable_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            DataGridViewRow row = this.productTable.Rows[e.RowIndex];
             try
             {
-                productID.Text = row.Cells[0].Value.ToString();
-                productName.Text = row.Cells[1].Value.ToString();
-                productUnit.Text = row.Cells[2].Value.ToString();
-                productCost.Text = row.Cells[3].Value.ToString();
-                productPrice.Text = row.Cells[4].Value.ToString();
+                DataGridViewRow row = this.productTable.Rows[e.RowIndex];
+                try
+                {
+                    productID.Text = row.Cells[0].Value.ToString();
+                    productName.Text = row.Cells[1].Value.ToString();
+                    productUnit.Text = row.Cells[2].Value.ToString();
+                    productCost.Text = row.Cells[3].Value.ToString();
+                    productPrice.Text = row.Cells[4].Value.ToString();
+                }
+                catch (NullReferenceException)
+                {
+                    productID.Text = "";
+                    productName.Text = "";
+                    productUnit.Text = "";
+                    productCost.Text = "";
+                    productPrice.Text = "";
+                }
             }
-            catch (NullReferenceException)
+            catch (System.ArgumentOutOfRangeException)
             {
-                productID.Text = "";
-                productName.Text = "";
-                productUnit.Text = "";
-                productCost.Text = "";
-                productPrice.Text = "";
+
             }
         }
 

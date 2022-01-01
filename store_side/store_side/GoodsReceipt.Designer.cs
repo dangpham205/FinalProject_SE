@@ -235,9 +235,9 @@
             this.backButton.BackgroundImage = global::store_side.Properties.Resources.b;
             this.backButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.backButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.backButton.Location = new System.Drawing.Point(0, 0);
+            this.backButton.Location = new System.Drawing.Point(2, 2);
             this.backButton.Name = "backButton";
-            this.backButton.Size = new System.Drawing.Size(53, 54);
+            this.backButton.Size = new System.Drawing.Size(54, 43);
             this.backButton.TabIndex = 3;
             this.backButton.UseVisualStyleBackColor = false;
             this.backButton.Click += new System.EventHandler(this.backButton_Click);
@@ -255,7 +255,7 @@
             this.productTable.Name = "productTable";
             this.productTable.RowHeadersWidth = 51;
             this.productTable.RowTemplate.Height = 24;
-            this.productTable.Size = new System.Drawing.Size(1061, 439);
+            this.productTable.Size = new System.Drawing.Size(1061, 444);
             this.productTable.TabIndex = 20;
             this.productTable.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.productTable_CellClick);
             this.productTable.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.productTable_DataBindingComplete);
@@ -471,6 +471,7 @@
             // 
             // clearButton
             // 
+            this.clearButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.clearButton.Location = new System.Drawing.Point(529, 230);
             this.clearButton.Name = "clearButton";
             this.clearButton.Size = new System.Drawing.Size(82, 48);

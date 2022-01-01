@@ -36,53 +36,67 @@ namespace store_side
 
         private void receiptTable_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            DataGridViewRow r = this.receiptTable.Rows[e.RowIndex];
-
-            foreach (DataGridViewRow row in productTable.Rows)
+            try
             {
-                try
+                DataGridViewRow r = this.receiptTable.Rows[e.RowIndex];
+
+                foreach (DataGridViewRow row in productTable.Rows)
                 {
-                    if (row.Cells[1].Value.ToString() == r.Cells[0].Value.ToString())
+                    try
                     {
-                        row.Visible = true;
+                        if (row.Cells[1].Value.ToString() == r.Cells[0].Value.ToString())
+                        {
+                            row.Visible = true;
+                        }
+                        else
+                        {
+                            CurrencyManager currencyManager = (CurrencyManager)BindingContext[productTable.DataSource];
+                            currencyManager.SuspendBinding();
+                            productTable.Rows[productTable.Rows.IndexOf(row)].Visible = false;
+                            currencyManager.ResumeBinding();
+                        }
                     }
-                    else
+                    catch (NullReferenceException)
                     {
-                        CurrencyManager currencyManager = (CurrencyManager)BindingContext[productTable.DataSource];
-                        currencyManager.SuspendBinding();
-                        productTable.Rows[productTable.Rows.IndexOf(row)].Visible = false;
-                        currencyManager.ResumeBinding();
+                        continue;
                     }
                 }
-                catch(NullReferenceException)
-                {
-                    continue;
-                }
+            }
+            catch (System.ArgumentOutOfRangeException)
+            {
+
             }
         }
 
         private void productTable_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            DataGridViewRow row = this.productTable.Rows[e.RowIndex];
             try
             {
-                productID.Text = row.Cells[0].Value.ToString();
-                productReceipt.Text = row.Cells[1].Value.ToString();
-                productName.Text = row.Cells[2].Value.ToString();
-                productUnit.Text = row.Cells[3].Value.ToString();
-                productCost.Text = row.Cells[4].Value.ToString();
-                productPrice.Text = row.Cells[5].Value.ToString();
-                productID.Enabled = false;
-                productReceipt.Enabled = false;
+                DataGridViewRow row = this.productTable.Rows[e.RowIndex];
+                try
+                {
+                    productID.Text = row.Cells[0].Value.ToString();
+                    productReceipt.Text = row.Cells[1].Value.ToString();
+                    productName.Text = row.Cells[2].Value.ToString();
+                    productUnit.Text = row.Cells[3].Value.ToString();
+                    productCost.Text = row.Cells[4].Value.ToString();
+                    productPrice.Text = row.Cells[5].Value.ToString();
+                    productID.Enabled = false;
+                    productReceipt.Enabled = false;
+                }
+                catch (NullReferenceException)
+                {
+                    productID.Text = "";
+                    productReceipt.Text = "";
+                    productName.Text = "";
+                    productUnit.Text = "";
+                    productCost.Text = "";
+                    productPrice.Text = "";
+                }
             }
-            catch (NullReferenceException)
+            catch (System.ArgumentOutOfRangeException)
             {
-                productID.Text = "";
-                productReceipt.Text = "";
-                productName.Text = "";
-                productUnit.Text = "";
-                productCost.Text = "";
-                productPrice.Text = "";
+
             }
         }
 

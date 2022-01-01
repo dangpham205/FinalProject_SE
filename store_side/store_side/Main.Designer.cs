@@ -30,10 +30,12 @@
         {
             this.receiptButton = new System.Windows.Forms.Button();
             this.manageReceiptsButton = new System.Windows.Forms.Button();
+            this.deliveryButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // receiptButton
             // 
+            this.receiptButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.receiptButton.Location = new System.Drawing.Point(159, 136);
             this.receiptButton.Name = "receiptButton";
             this.receiptButton.Size = new System.Drawing.Size(307, 23);
@@ -44,6 +46,7 @@
             // 
             // manageReceiptsButton
             // 
+            this.manageReceiptsButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.manageReceiptsButton.Location = new System.Drawing.Point(486, 290);
             this.manageReceiptsButton.Name = "manageReceiptsButton";
             this.manageReceiptsButton.Size = new System.Drawing.Size(400, 23);
@@ -52,11 +55,23 @@
             this.manageReceiptsButton.UseVisualStyleBackColor = true;
             this.manageReceiptsButton.Click += new System.EventHandler(this.manageReceiptsButton_Click);
             // 
+            // deliveryButton
+            // 
+            this.deliveryButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.deliveryButton.Location = new System.Drawing.Point(143, 368);
+            this.deliveryButton.Name = "deliveryButton";
+            this.deliveryButton.Size = new System.Drawing.Size(379, 23);
+            this.deliveryButton.TabIndex = 2;
+            this.deliveryButton.Text = "CREATE GOODS DELIVERY NOTES";
+            this.deliveryButton.UseVisualStyleBackColor = true;
+            this.deliveryButton.Click += new System.EventHandler(this.deliveryButton_Click);
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1182, 753);
+            this.Controls.Add(this.deliveryButton);
             this.Controls.Add(this.manageReceiptsButton);
             this.Controls.Add(this.receiptButton);
             this.Name = "Main";
@@ -70,5 +85,6 @@
 
         private System.Windows.Forms.Button receiptButton;
         private System.Windows.Forms.Button manageReceiptsButton;
+        private System.Windows.Forms.Button deliveryButton;
     }
 }

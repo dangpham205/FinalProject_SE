@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.backButton = new System.Windows.Forms.Button();
             this.productTable = new System.Windows.Forms.DataGridView();
             this.prodidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.prodbelongDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -64,6 +63,7 @@
             this.updateProductButton = new System.Windows.Forms.Button();
             this.deleteProductButton = new System.Windows.Forms.Button();
             this.deleteReceiptButton = new System.Windows.Forms.Button();
+            this.backButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.productTable)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.productBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cnpmDataSet)).BeginInit();
@@ -71,16 +71,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.receiptBindingSource)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // backButton
-            // 
-            this.backButton.Location = new System.Drawing.Point(0, 1);
-            this.backButton.Name = "backButton";
-            this.backButton.Size = new System.Drawing.Size(75, 42);
-            this.backButton.TabIndex = 0;
-            this.backButton.Text = "BACK";
-            this.backButton.UseVisualStyleBackColor = true;
-            this.backButton.Click += new System.EventHandler(this.backButton_Click);
             // 
             // productTable
             // 
@@ -223,6 +213,7 @@
             // 
             // allProductButton
             // 
+            this.allProductButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.allProductButton.Location = new System.Drawing.Point(30, 281);
             this.allProductButton.Name = "allProductButton";
             this.allProductButton.Size = new System.Drawing.Size(123, 45);
@@ -351,6 +342,7 @@
             // 
             // clearButton
             // 
+            this.clearButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.clearButton.Location = new System.Drawing.Point(559, 281);
             this.clearButton.Name = "clearButton";
             this.clearButton.Size = new System.Drawing.Size(82, 45);
@@ -394,6 +386,7 @@
             // 
             // deleteReceiptButton
             // 
+            this.deleteReceiptButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.deleteReceiptButton.Location = new System.Drawing.Point(310, 281);
             this.deleteReceiptButton.Name = "deleteReceiptButton";
             this.deleteReceiptButton.Size = new System.Drawing.Size(157, 45);
@@ -402,12 +395,26 @@
             this.deleteReceiptButton.UseVisualStyleBackColor = true;
             this.deleteReceiptButton.Click += new System.EventHandler(this.deleteReceiptButton_Click);
             // 
+            // backButton
+            // 
+            this.backButton.BackColor = System.Drawing.Color.LightGreen;
+            this.backButton.BackgroundImage = global::store_side.Properties.Resources.b;
+            this.backButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.backButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.backButton.Location = new System.Drawing.Point(1, 1);
+            this.backButton.Name = "backButton";
+            this.backButton.Size = new System.Drawing.Size(54, 43);
+            this.backButton.TabIndex = 20;
+            this.backButton.UseVisualStyleBackColor = false;
+            this.backButton.Click += new System.EventHandler(this.backButton_Click);
+            // 
             // ManageGoodsReceipts
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(1182, 753);
+            this.Controls.Add(this.backButton);
             this.Controls.Add(this.deleteReceiptButton);
             this.Controls.Add(this.deleteProductButton);
             this.Controls.Add(this.updateProductButton);
@@ -417,7 +424,6 @@
             this.Controls.Add(this.allProductButton);
             this.Controls.Add(this.receiptTable);
             this.Controls.Add(this.productTable);
-            this.Controls.Add(this.backButton);
             this.Name = "ManageGoodsReceipts";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Goods Receipts Management";
@@ -434,8 +440,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Button backButton;
         private System.Windows.Forms.DataGridView productTable;
         private cnpmDataSet cnpmDataSet;
         private System.Windows.Forms.BindingSource productBindingSource;
@@ -470,5 +474,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn prodpriceDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn produnitDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn prodcostDataGridViewTextBoxColumn;
+        private System.Windows.Forms.Button backButton;
     }
 }
