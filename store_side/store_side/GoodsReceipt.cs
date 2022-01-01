@@ -14,7 +14,6 @@ namespace store_side
     public partial class GoodsReceipt : Form
     {
         SqlConnection connection = new SqlConnection(@"Data Source=HAIDANG\SQLEXPRESS;Initial Catalog=cnpm;Integrated Security=True");
-        SqlCommand cmd;
 
 
         public GoodsReceipt()
@@ -50,6 +49,20 @@ namespace store_side
             }
         }
 
+        private void clearButton_Click(object sender, EventArgs e)
+        {
+            productID.Text = "";
+            productName.Text = "";
+            productUnit.Text = "";
+            productCost.Text = "";
+            productPrice.Text = "";
+
+            receiptID.Text = "";
+            receiptName.Text = "";
+            productTable.Rows.Clear();
+            productTable.Refresh();
+        }
+
         private void addProductButton_Click(object sender, EventArgs e)
         {
             if(productTable.RowCount >1)
@@ -71,13 +84,13 @@ namespace store_side
                 }
             }
             int i;
-            if (int.TryParse(productCost.Text, out i) == false || int.TryParse(productPrice.Text, out i) == false)
-            {
-                MessageBox.Show("Money value must be integer");
-                return;
-            }
             if (productID.Text != "" && productName.Text != "" && productUnit.Text != "" && productPrice.Text != "")
             {
+                if (int.TryParse(productCost.Text, out i) == false || int.TryParse(productPrice.Text, out i) == false)
+                {
+                    MessageBox.Show("Money value must be integer");
+                    return;
+                }
                 int rowId = productTable.Rows.Add();
                 // Grab the new row
                 DataGridViewRow row = productTable.Rows[rowId];
@@ -173,7 +186,7 @@ namespace store_side
        
         }
 
-        private void saveButton_Click(object sender, EventArgs e)
+        /*private void saveButton_Click(object sender, EventArgs e)
         {
             if (receiptID.Text == "" || receiptName.Text == "")
             {
@@ -239,6 +252,70 @@ namespace store_side
 
                 }
             }
+        }*/
+
+        private void saveButton_Click(object sender, EventArgs e)
+        {
+            if (receiptID.Text == "" || receiptName.Text == "")
+            {
+                MessageBox.Show("Please fill the receipt's information.");
+                return;
+            }
+            else if (productTable.RowCount == 1)
+            {
+                MessageBox.Show("You will need to add your products first.");
+                return;
+            }
+            else
+            {
+                try
+                {
+                    cnpmDataSet.receiptRow receipt = this.cnpmDataSet.receipt.AddreceiptRow(
+                    receiptID.Text, receiptName.Text);
+                    this.receiptTableAdapter.Update(receipt);
+                    foreach (DataGridViewRow row in productTable.Rows)
+                    {
+                        try
+                        {
+                            try
+                            {
+                                cnpmDataSet.productRow product = this.cnpmDataSet.product.AddproductRow(
+                                row.Cells[0].Value.ToString(), row.Cells[1].Value.ToString(), row.Cells[2].Value.ToString(),
+                                Int32.Parse(row.Cells[3].Value.ToString()), Int32.Parse(row.Cells[4].Value.ToString()), receiptID.Text);
+                                this.productTableAdapter.Update(product);
+                            }
+                            catch (System.NullReferenceException)
+                            {
+                                MessageBox.Show("Add succeed");
+                            }
+                        }
+                        catch (System.Data.ConstraintException)
+                        {
+                            MessageBox.Show("There is already a Product with the ID: " + row.Cells[0].Value.ToString());
+                            return;
+                        }
+                    }
+
+                }
+                catch (System.Data.ConstraintException)
+                {
+                    MessageBox.Show("There is already a Receipt with the ID: " + receiptID.Text);
+                    return;
+                }
+
+            }
         }
+
+
+        private void GoodsReceipt_Load(object sender, EventArgs e)
+        {
+            // TODO: This line of code loads data into the 'cnpmDataSet.receipt' table. You can move, or remove it, as needed.
+            this.receiptTableAdapter.Fill(this.cnpmDataSet.receipt);
+            // TODO: This line of code loads data into the 'cnpmDataSet.product' table. You can move, or remove it, as needed.
+            this.productTableAdapter.Fill(this.cnpmDataSet.product);
+
+        }
+
+        
     }
 }

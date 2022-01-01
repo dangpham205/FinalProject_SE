@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.receiptButton = new System.Windows.Forms.Button();
+            this.manageReceiptsButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // receiptButton
@@ -41,11 +42,22 @@
             this.receiptButton.UseVisualStyleBackColor = true;
             this.receiptButton.Click += new System.EventHandler(this.receiptButton_Click);
             // 
+            // manageReceiptsButton
+            // 
+            this.manageReceiptsButton.Location = new System.Drawing.Point(486, 290);
+            this.manageReceiptsButton.Name = "manageReceiptsButton";
+            this.manageReceiptsButton.Size = new System.Drawing.Size(400, 23);
+            this.manageReceiptsButton.TabIndex = 1;
+            this.manageReceiptsButton.Text = "MANAGE GOODS RECEIPTS";
+            this.manageReceiptsButton.UseVisualStyleBackColor = true;
+            this.manageReceiptsButton.Click += new System.EventHandler(this.manageReceiptsButton_Click);
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1182, 753);
+            this.Controls.Add(this.manageReceiptsButton);
             this.Controls.Add(this.receiptButton);
             this.Name = "Main";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -57,5 +69,6 @@
         #endregion
 
         private System.Windows.Forms.Button receiptButton;
+        private System.Windows.Forms.Button manageReceiptsButton;
     }
 }

@@ -23,5 +23,12 @@ namespace store_side
             GoodsReceipt nextForm = new GoodsReceipt();
             nextForm.Show();
         }
+
+        private void manageReceiptsButton_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            ManageGoodsReceipts nextForm = new ManageGoodsReceipts();
+            nextForm.Show();
+        }
     }
 }

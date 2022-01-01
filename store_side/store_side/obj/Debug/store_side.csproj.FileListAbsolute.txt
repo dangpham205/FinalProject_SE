@@ -22,3 +22,5 @@ C:\Users\Admin\Desktop\FinalProject_SE-main\store_side\store_side\obj\Debug\stor
 C:\Users\Admin\Desktop\FinalProject_SE-main\store_side\store_side\obj\Debug\store_side.csproj.CoreCompileInputs.cache
 C:\Users\Admin\Desktop\FinalProject_SE-main\store_side\store_side\obj\Debug\store_side.exe
 C:\Users\Admin\Desktop\FinalProject_SE-main\store_side\store_side\obj\Debug\store_side.pdb
+C:\Users\Admin\Desktop\FinalProject_SE-main\store_side\store_side\obj\Debug\store_side.ManageGoodsReceipts.resources
+C:\Users\Admin\Desktop\Study\3RD Công Nghệ Phần Mềm\cúi kì\store_side\store_side\obj\Debug\store_side.ManageGoodsReceipts.resources
