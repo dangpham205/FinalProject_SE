@@ -84,7 +84,7 @@ namespace store_side
                 }
             }
             int i;
-            if (productID.Text != "" && productName.Text != "" && productUnit.Text != "" && productPrice.Text != "")
+            if (productID.Text != "" && productName.Text != "" && productUnit.Text != "" && productPrice.Text != "" && productCost.Text != "")
             {
                 if (int.TryParse(productCost.Text, out i) == false || int.TryParse(productPrice.Text, out i) == false)
                 {
@@ -124,13 +124,13 @@ namespace store_side
                     int rowId = productTable.CurrentCell.RowIndex;
                     DataGridViewRow row = productTable.Rows[rowId];
                     int i;
-                    if (int.TryParse(productCost.Text, out i) == false || int.TryParse(productPrice.Text, out i) == false)
+                    if (productID.Text != "" && productName.Text != "" && productUnit.Text != "" && productPrice.Text != "" && productCost.Text != "")
                     {
-                        MessageBox.Show("Money value must be integer");
-                        return;
-                    }
-                    if (productID.Text != "" && productName.Text != "" && productUnit.Text != "" && productPrice.Text != "")
-                    {
+                        if (int.TryParse(productCost.Text, out i) == false || int.TryParse(productPrice.Text, out i) == false)
+                        {
+                            MessageBox.Show("Money value must be integer");
+                            return;
+                        }
                         row.Cells[0].Value = productID.Text;
                         row.Cells[1].Value = productName.Text;
                         row.Cells[2].Value = productUnit.Text;

@@ -118,42 +118,68 @@ namespace store_side
 
         private void addProductButton_Click(object sender, EventArgs e)
         {
-            try
+            int t1 = productTable.RowCount;
+            int i;
+            if (productID.Text != "" && productName.Text != "" && productUnit.Text != "" && productPrice.Text != "" && productCost.Text != "" && productReceipt.Text != "")
             {
-                cnpmDataSet.productRow product = this.cnpmDataSet.product.AddproductRow(
-                productID.Text, productName.Text,productUnit.Text,Int32.Parse(productCost.Text), 
-                Int32.Parse(productPrice.Text), productReceipt.Text);
-                this.productTableAdapter.Update(product);
-                MessageBox.Show("Add Succeed!!");
+                if (int.TryParse(productCost.Text, out i) == false || int.TryParse(productPrice.Text, out i) == false)
+                {
+                    MessageBox.Show("Money value must be integer");
+                    return;
+                }
+                foreach (DataGridViewRow r in receiptTable.Rows)
+                {
+                    if (r.Cells[0].Value.ToString().Equals(productReceipt.Text))
+                    {
+                        try
+                        {
+                            cnpmDataSet.productRow product = this.cnpmDataSet.product.AddproductRow(
+                            productID.Text, productName.Text, productUnit.Text, Int32.Parse(productCost.Text),
+                            Int32.Parse(productPrice.Text), productReceipt.Text);
+                            this.productTableAdapter.Update(product);
+                            MessageBox.Show("Add Succeed!!");
 
-                productID.Text = "";
-                productReceipt.Text = "";
-                productName.Text = "";
-                productUnit.Text = "";
-                productCost.Text = "";
-                productPrice.Text = "";
-                productID.Enabled = true;
-                productReceipt.Enabled = true;
-                productTable.ClearSelection();
-                receiptTable.ClearSelection();
+                            productID.Text = "";
+                            productReceipt.Text = "";
+                            productName.Text = "";
+                            productUnit.Text = "";
+                            productCost.Text = "";
+                            productPrice.Text = "";
+                            productID.Enabled = true;
+                            productReceipt.Enabled = true;
+                            productTable.ClearSelection();
+                            receiptTable.ClearSelection();
+                            return;
+                        }
+                        catch (System.Data.ConstraintException)
+                        {
+                            MessageBox.Show("There is already a Product with the ID: " + productID.Text);
+                            return;
+                        }
+                    }
+                }
+                int t2 = productTable.RowCount;
+                if (t1 == t2)
+                {
+                    MessageBox.Show("Receipt ID does not exist.");
+                }
             }
-            catch (System.Data.ConstraintException)
+            else
             {
-                MessageBox.Show("There is already a Product with the ID: " + productID.Text);
-                return;
+                MessageBox.Show("Please fill out all the information.");
             }
         }
 
         private void updateProductButton_Click(object sender, EventArgs e)
         {
             int i;
-            if (int.TryParse(productCost.Text, out i) == false || int.TryParse(productPrice.Text, out i) == false)
+            if (productID.Text != "" && productName.Text != "" && productUnit.Text != "" && productPrice.Text != "" && productCost.Text != "")
             {
-                MessageBox.Show("Money value must be integer");
-                return;
-            }
-            if (productID.Text != "" && productName.Text != "" && productUnit.Text != "" && productPrice.Text != "")
-            {
+                if (int.TryParse(productCost.Text, out i) == false || int.TryParse(productPrice.Text, out i) == false)
+                {
+                    MessageBox.Show("Money value must be integer");
+                    return;
+                }
                 int rowIndex = this.productTable.CurrentCell.RowIndex;
                 cnpmDataSet.productRow product = (cnpmDataSet.productRow)this.cnpmDataSet.product.Rows[rowIndex];
                 product.prod_id = productID.Text;
@@ -241,23 +267,6 @@ namespace store_side
 
                         }
                     }
-                    /*foreach (DataGridViewRow r in productTable.Rows)
-                    {
-                        cnpmDataSet.productRow product = (cnpmDataSet.productRow)this.cnpmDataSet.product.Rows[productTable.Rows.IndexOf(r)];
-                        try
-                        {
-                            if (r.Cells[1].Value.ToString().Equals(id))
-                            {
-                                product.Delete();
-                                this.productTableAdapter.Update(product);
-
-                            }
-                        }
-                        catch (ArgumentOutOfRangeException)
-                        {
-
-                        }
-                    }*/
                     MessageBox.Show("Deleted!!!");
                     return;
                 }
