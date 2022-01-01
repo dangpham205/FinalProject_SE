@@ -58,27 +58,27 @@
             this.tableAdapterManager1 = new store_side.cnpmDataSetTableAdapters.TableAdapterManager();
             this.updateProductButton = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.cnpmDataSet = new store_side.cnpmDataSet();
-            this.productBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.productTableAdapter = new store_side.cnpmDataSetTableAdapters.productTableAdapter();
             this.prodidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.prodnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.produnitDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.prodcostDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.prodpriceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.prodbelongDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.productBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.cnpmDataSet = new store_side.cnpmDataSet();
+            this.productTableAdapter = new store_side.cnpmDataSetTableAdapters.productTableAdapter();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.receiptBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.receiptTableAdapter = new store_side.cnpmDataSetTableAdapters.receiptTableAdapter();
             this.receiptidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.receiptnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.receiptBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.receiptTableAdapter = new store_side.cnpmDataSetTableAdapters.receiptTableAdapter();
             this.clearButton = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.productTable)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cnpmDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.productBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cnpmDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.receiptBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -90,7 +90,7 @@
             this.groupBox1.Controls.Add(this.receiptID);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(59, 36);
+            this.groupBox1.Location = new System.Drawing.Point(59, 50);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(401, 174);
             this.groupBox1.TabIndex = 0;
@@ -142,12 +142,12 @@
             this.groupBox2.Controls.Add(this.label5);
             this.groupBox2.Controls.Add(this.label4);
             this.groupBox2.Controls.Add(this.label3);
-            this.groupBox2.Location = new System.Drawing.Point(529, 36);
+            this.groupBox2.Location = new System.Drawing.Point(529, 50);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(591, 174);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Add Products";
+            this.groupBox2.Text = "Product";
             // 
             // productCost
             // 
@@ -258,6 +258,7 @@
             this.productTable.Size = new System.Drawing.Size(1061, 439);
             this.productTable.TabIndex = 20;
             this.productTable.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.productTable_CellClick);
+            this.productTable.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.productTable_DataBindingComplete);
             // 
             // Column1
             // 
@@ -297,9 +298,9 @@
             // addReceiptButton
             // 
             this.addReceiptButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.addReceiptButton.Location = new System.Drawing.Point(1017, 216);
+            this.addReceiptButton.Location = new System.Drawing.Point(1017, 230);
             this.addReceiptButton.Name = "addReceiptButton";
-            this.addReceiptButton.Size = new System.Drawing.Size(103, 62);
+            this.addReceiptButton.Size = new System.Drawing.Size(103, 48);
             this.addReceiptButton.TabIndex = 12;
             this.addReceiptButton.Text = "SAVE";
             this.addReceiptButton.UseVisualStyleBackColor = true;
@@ -308,22 +309,22 @@
             // deleteProductButton
             // 
             this.deleteProductButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.deleteProductButton.Location = new System.Drawing.Point(908, 216);
+            this.deleteProductButton.Location = new System.Drawing.Point(908, 230);
             this.deleteProductButton.Name = "deleteProductButton";
-            this.deleteProductButton.Size = new System.Drawing.Size(103, 62);
+            this.deleteProductButton.Size = new System.Drawing.Size(103, 48);
             this.deleteProductButton.TabIndex = 11;
-            this.deleteProductButton.Text = "DELETE PRODUCT";
+            this.deleteProductButton.Text = "DELETE ";
             this.deleteProductButton.UseVisualStyleBackColor = true;
             this.deleteProductButton.Click += new System.EventHandler(this.deleteProductButton_Click);
             // 
             // addProductButton
             // 
             this.addProductButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.addProductButton.Location = new System.Drawing.Point(692, 216);
+            this.addProductButton.Location = new System.Drawing.Point(692, 230);
             this.addProductButton.Name = "addProductButton";
-            this.addProductButton.Size = new System.Drawing.Size(102, 62);
+            this.addProductButton.Size = new System.Drawing.Size(102, 48);
             this.addProductButton.TabIndex = 9;
-            this.addProductButton.Text = "ADD PRODUCT";
+            this.addProductButton.Text = "ADD ";
             this.addProductButton.UseVisualStyleBackColor = true;
             this.addProductButton.Click += new System.EventHandler(this.addProductButton_Click);
             // 
@@ -339,11 +340,11 @@
             // updateProductButton
             // 
             this.updateProductButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.updateProductButton.Location = new System.Drawing.Point(800, 216);
+            this.updateProductButton.Location = new System.Drawing.Point(800, 230);
             this.updateProductButton.Name = "updateProductButton";
-            this.updateProductButton.Size = new System.Drawing.Size(102, 62);
+            this.updateProductButton.Size = new System.Drawing.Size(102, 48);
             this.updateProductButton.TabIndex = 10;
-            this.updateProductButton.Text = "UPDATE PRODUCT";
+            this.updateProductButton.Text = "UPDATE ";
             this.updateProductButton.UseVisualStyleBackColor = true;
             this.updateProductButton.Click += new System.EventHandler(this.updateProductButton_Click);
             // 
@@ -359,26 +360,12 @@
             this.prodpriceDataGridViewTextBoxColumn,
             this.prodbelongDataGridViewTextBoxColumn});
             this.dataGridView1.DataSource = this.productBindingSource;
-            this.dataGridView1.Location = new System.Drawing.Point(633, 284);
+            this.dataGridView1.Location = new System.Drawing.Point(59, 284);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(36, 26);
+            this.dataGridView1.Size = new System.Drawing.Size(52, 26);
             this.dataGridView1.TabIndex = 21;
-            // 
-            // cnpmDataSet
-            // 
-            this.cnpmDataSet.DataSetName = "cnpmDataSet";
-            this.cnpmDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // productBindingSource
-            // 
-            this.productBindingSource.DataMember = "product";
-            this.productBindingSource.DataSource = this.cnpmDataSet;
-            // 
-            // productTableAdapter
-            // 
-            this.productTableAdapter.ClearBeforeFill = true;
             // 
             // prodidDataGridViewTextBoxColumn
             // 
@@ -428,6 +415,20 @@
             this.prodbelongDataGridViewTextBoxColumn.Name = "prodbelongDataGridViewTextBoxColumn";
             this.prodbelongDataGridViewTextBoxColumn.Width = 125;
             // 
+            // productBindingSource
+            // 
+            this.productBindingSource.DataMember = "product";
+            this.productBindingSource.DataSource = this.cnpmDataSet;
+            // 
+            // cnpmDataSet
+            // 
+            this.cnpmDataSet.DataSetName = "cnpmDataSet";
+            this.cnpmDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // productTableAdapter
+            // 
+            this.productTableAdapter.ClearBeforeFill = true;
+            // 
             // dataGridView2
             // 
             this.dataGridView2.AutoGenerateColumns = false;
@@ -436,21 +437,12 @@
             this.receiptidDataGridViewTextBoxColumn,
             this.receiptnameDataGridViewTextBoxColumn});
             this.dataGridView2.DataSource = this.receiptBindingSource;
-            this.dataGridView2.Location = new System.Drawing.Point(569, 284);
+            this.dataGridView2.Location = new System.Drawing.Point(59, 284);
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.RowHeadersWidth = 51;
             this.dataGridView2.RowTemplate.Height = 24;
-            this.dataGridView2.Size = new System.Drawing.Size(34, 26);
+            this.dataGridView2.Size = new System.Drawing.Size(52, 26);
             this.dataGridView2.TabIndex = 22;
-            // 
-            // receiptBindingSource
-            // 
-            this.receiptBindingSource.DataMember = "receipt";
-            this.receiptBindingSource.DataSource = this.cnpmDataSet;
-            // 
-            // receiptTableAdapter
-            // 
-            this.receiptTableAdapter.ClearBeforeFill = true;
             // 
             // receiptidDataGridViewTextBoxColumn
             // 
@@ -468,11 +460,20 @@
             this.receiptnameDataGridViewTextBoxColumn.Name = "receiptnameDataGridViewTextBoxColumn";
             this.receiptnameDataGridViewTextBoxColumn.Width = 125;
             // 
+            // receiptBindingSource
+            // 
+            this.receiptBindingSource.DataMember = "receipt";
+            this.receiptBindingSource.DataSource = this.cnpmDataSet;
+            // 
+            // receiptTableAdapter
+            // 
+            this.receiptTableAdapter.ClearBeforeFill = true;
+            // 
             // clearButton
             // 
-            this.clearButton.Location = new System.Drawing.Point(529, 216);
+            this.clearButton.Location = new System.Drawing.Point(529, 230);
             this.clearButton.Name = "clearButton";
-            this.clearButton.Size = new System.Drawing.Size(75, 62);
+            this.clearButton.Size = new System.Drawing.Size(82, 48);
             this.clearButton.TabIndex = 23;
             this.clearButton.Text = "CLEAR";
             this.clearButton.UseVisualStyleBackColor = true;
@@ -505,8 +506,8 @@
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.productTable)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cnpmDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.productBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cnpmDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.receiptBindingSource)).EndInit();
             this.ResumeLayout(false);

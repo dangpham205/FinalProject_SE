@@ -186,74 +186,6 @@ namespace store_side
        
         }
 
-        /*private void saveButton_Click(object sender, EventArgs e)
-        {
-            if (receiptID.Text == "" || receiptName.Text == "")
-            {
-                MessageBox.Show("Please fill the receipt's information");
-                return;
-            }
-            else if (productTable.RowCount == 1)
-            {
-                MessageBox.Show("You will need to add products first");
-                return;
-            }
-            else
-            {
-                try
-                {
-                    connection.Open();
-                    try
-                    {
-                        cmd = new SqlCommand("insert into receipt values(N'" + receiptID.Text + "', N'" + receiptName.Text + "')", connection);
-                        cmd.ExecuteNonQuery();
-                    }
-                    catch (System.Data.SqlClient.SqlException)
-                    {
-                        MessageBox.Show("There is already a receipt with the ID: " + receiptID);
-                        return;
-                    }
-                    finally
-                    {
-                        connection.Close();
-                    }
-                    foreach (DataGridViewRow r in productTable.Rows)
-                    {
-                        try
-                        {
-                            connection.Open();
-                            cmd = new SqlCommand("insert into product values(N'" + r.Cells[0].Value.ToString() + "', N'" + r.Cells[1].Value.ToString() + "', N'" + r.Cells[2].Value.ToString() + "', " +
-                                "N'" + Int32.Parse(r.Cells[3].Value.ToString()) + "', '" + Int32.Parse(r.Cells[4].Value.ToString()) + "' , N'" + receiptID.Text + "')", connection);
-                            try
-                            {
-                                cmd.ExecuteNonQuery();
-                                connection.Close();
-                            }
-                            catch (System.Data.SqlClient.SqlException)
-                            {
-                                MessageBox.Show("There is already a product with the ID: " + r.Cells[0].Value.ToString());
-                                return;
-                            }
-
-                            receiptID.Text = "";
-                            receiptName.Text = "";
-                            productTable.Rows.Clear();
-                            productTable.Refresh();
-                        }
-                        catch (NullReferenceException)
-                        {
-
-                        }
-                    }
-                }
-                catch (System.InvalidOperationException)
-                {
-                    connection.Close();
-
-                }
-            }
-        }*/
-
         private void saveButton_Click(object sender, EventArgs e)
         {
             if (receiptID.Text == "" || receiptName.Text == "")
@@ -286,7 +218,18 @@ namespace store_side
                             }
                             catch (System.NullReferenceException)
                             {
-                                MessageBox.Show("Add succeed");
+                                MessageBox.Show("Add Succeed!!");
+
+                                productID.Text = "";
+                                productName.Text = "";
+                                productUnit.Text = "";
+                                productCost.Text = "";
+                                productPrice.Text = "";
+
+                                receiptID.Text = "";
+                                receiptName.Text = "";
+                                productTable.Rows.Clear();
+                                productTable.Refresh();
                             }
                         }
                         catch (System.Data.ConstraintException)
@@ -316,6 +259,9 @@ namespace store_side
 
         }
 
-        
+        private void productTable_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            productTable.ClearSelection();
+        }
     }
 }
