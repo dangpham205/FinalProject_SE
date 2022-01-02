@@ -23,11 +23,12 @@ create table product
 INSERT INTO accountant VALUES ('admin123','admin123');
 create table product2
 (
-	prod_id NVARCHAR(20) not null PRIMARY KEY,
+	prod_id NVARCHAR(20) not null  ,
 	prod_name NVARCHAR(20) not null,
 	prod_unit INT not null,
 	prod_price INT not null,
-	prod_belong NVARCHAR(20),
+	prod_belong NVARCHAR(20) not null,
+	PRIMARY KEY(prod_id, prod_belong)
 )
 create table bill
 (
@@ -40,11 +41,13 @@ create table bill
 	bill_total INT not null,
 )
 
-
 select * from bill
 select * from product2
+delete from bill
+delete from product2
 drop table bill
 drop table product2
+
 
 
 drop database cnpm
