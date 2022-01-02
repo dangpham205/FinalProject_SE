@@ -141,6 +141,11 @@ namespace store_side
                     MessageBox.Show("Money value must be integer");
                     return;
                 }
+                if (int.TryParse(productUnit.Text, out i) == false)
+                {
+                    MessageBox.Show("Unit value must be integer");
+                    return;
+                }
                 foreach (DataGridViewRow r in receiptTable.Rows)
                 {
                     if (r.Cells[0].Value.ToString().Equals(productReceipt.Text))
@@ -192,6 +197,11 @@ namespace store_side
                 if (int.TryParse(productCost.Text, out i) == false || int.TryParse(productPrice.Text, out i) == false)
                 {
                     MessageBox.Show("Money value must be integer");
+                    return;
+                }
+                if (int.TryParse(productUnit.Text, out i) == false)
+                {
+                    MessageBox.Show("Unit value must be integer");
                     return;
                 }
                 int rowIndex = this.productTable.CurrentCell.RowIndex;

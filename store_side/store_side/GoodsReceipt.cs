@@ -98,6 +98,11 @@ namespace store_side
                     MessageBox.Show("Money value must be integer");
                     return;
                 }
+                if (int.TryParse(productUnit.Text, out i) == false )
+                {
+                    MessageBox.Show("Unit value must be integer");
+                    return;
+                }
                 int rowId = productTable.Rows.Add();
                 // Grab the new row
                 DataGridViewRow row = productTable.Rows[rowId];
@@ -136,6 +141,11 @@ namespace store_side
                         if (int.TryParse(productCost.Text, out i) == false || int.TryParse(productPrice.Text, out i) == false)
                         {
                             MessageBox.Show("Money value must be integer");
+                            return;
+                        }
+                        if (int.TryParse(productUnit.Text, out i) == false)
+                        {
+                            MessageBox.Show("Unit value must be integer");
                             return;
                         }
                         row.Cells[0].Value = productID.Text;

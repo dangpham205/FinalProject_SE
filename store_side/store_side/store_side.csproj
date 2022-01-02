@@ -51,6 +51,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>cnpmDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="cnpmDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>cnpmDataSet1.xsd</DependentUpon>
+    </Compile>
     <Compile Include="GoodsDelivery.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -118,6 +123,17 @@
     </None>
     <None Include="cnpmDataSet.xss">
       <DependentUpon>cnpmDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="cnpmDataSet1.xsc">
+      <DependentUpon>cnpmDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="cnpmDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>cnpmDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="cnpmDataSet1.xss">
+      <DependentUpon>cnpmDataSet1.xsd</DependentUpon>
     </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
