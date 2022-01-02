@@ -499,7 +499,7 @@
             this.Controls.Add(this.groupBox1);
             this.Name = "GoodsReceipt";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "GoodsReceipt";
+            this.Text = "Create Goods Receipt";
             this.Load += new System.EventHandler(this.GoodsReceipt_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

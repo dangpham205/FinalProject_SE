@@ -65,9 +65,6 @@
             this.quantityDialog = new System.Windows.Forms.GroupBox();
             this.quantityButton = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.cnpmDataSet1 = new store_side.cnpmDataSet1();
-            this.billBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.billTableAdapter = new store_side.cnpmDataSet1TableAdapters.billTableAdapter();
             this.billidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cusnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cusaddressDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -75,14 +72,17 @@
             this.deliverystatusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.paymentstatusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.billtotalDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.billBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.cnpmDataSet1 = new store_side.cnpmDataSet1();
+            this.billTableAdapter = new store_side.cnpmDataSet1TableAdapters.billTableAdapter();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.product2BindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.product2TableAdapter = new store_side.cnpmDataSet1TableAdapters.product2TableAdapter();
             this.prodidDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.prodnameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.produnitDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.prodpriceDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.prodbelongDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.product2BindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.product2TableAdapter = new store_side.cnpmDataSet1TableAdapters.product2TableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.productTable)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.productBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cnpmDataSet)).BeginInit();
@@ -92,8 +92,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.quantity)).BeginInit();
             this.quantityDialog.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cnpmDataSet1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.billBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cnpmDataSet1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.product2BindingSource)).BeginInit();
             this.SuspendLayout();
@@ -106,7 +106,7 @@
             this.backButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.backButton.Location = new System.Drawing.Point(3, 3);
             this.backButton.Name = "backButton";
-            this.backButton.Size = new System.Drawing.Size(53, 44);
+            this.backButton.Size = new System.Drawing.Size(54, 43);
             this.backButton.TabIndex = 4;
             this.backButton.UseVisualStyleBackColor = false;
             this.backButton.Click += new System.EventHandler(this.backButton_Click);
@@ -472,20 +472,6 @@
             this.dataGridView1.Size = new System.Drawing.Size(52, 26);
             this.dataGridView1.TabIndex = 16;
             // 
-            // cnpmDataSet1
-            // 
-            this.cnpmDataSet1.DataSetName = "cnpmDataSet1";
-            this.cnpmDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // billBindingSource
-            // 
-            this.billBindingSource.DataMember = "bill";
-            this.billBindingSource.DataSource = this.cnpmDataSet1;
-            // 
-            // billTableAdapter
-            // 
-            this.billTableAdapter.ClearBeforeFill = true;
-            // 
             // billidDataGridViewTextBoxColumn
             // 
             this.billidDataGridViewTextBoxColumn.DataPropertyName = "bill_id";
@@ -549,6 +535,20 @@
             this.billtotalDataGridViewTextBoxColumn.ReadOnly = true;
             this.billtotalDataGridViewTextBoxColumn.Width = 125;
             // 
+            // billBindingSource
+            // 
+            this.billBindingSource.DataMember = "bill";
+            this.billBindingSource.DataSource = this.cnpmDataSet1;
+            // 
+            // cnpmDataSet1
+            // 
+            this.cnpmDataSet1.DataSetName = "cnpmDataSet1";
+            this.cnpmDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // billTableAdapter
+            // 
+            this.billTableAdapter.ClearBeforeFill = true;
+            // 
             // dataGridView2
             // 
             this.dataGridView2.AllowUserToAddRows = false;
@@ -569,15 +569,6 @@
             this.dataGridView2.RowTemplate.Height = 24;
             this.dataGridView2.Size = new System.Drawing.Size(52, 26);
             this.dataGridView2.TabIndex = 17;
-            // 
-            // product2BindingSource
-            // 
-            this.product2BindingSource.DataMember = "product2";
-            this.product2BindingSource.DataSource = this.cnpmDataSet1;
-            // 
-            // product2TableAdapter
-            // 
-            this.product2TableAdapter.ClearBeforeFill = true;
             // 
             // prodidDataGridViewTextBoxColumn1
             // 
@@ -624,6 +615,15 @@
             this.prodbelongDataGridViewTextBoxColumn.ReadOnly = true;
             this.prodbelongDataGridViewTextBoxColumn.Width = 125;
             // 
+            // product2BindingSource
+            // 
+            this.product2BindingSource.DataMember = "product2";
+            this.product2BindingSource.DataSource = this.cnpmDataSet1;
+            // 
+            // product2TableAdapter
+            // 
+            this.product2TableAdapter.ClearBeforeFill = true;
+            // 
             // GoodsDelivery
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -657,8 +657,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.quantity)).EndInit();
             this.quantityDialog.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cnpmDataSet1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.billBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cnpmDataSet1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.product2BindingSource)).EndInit();
             this.ResumeLayout(false);

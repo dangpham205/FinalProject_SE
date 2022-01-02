@@ -37,5 +37,29 @@ namespace store_side
             GoodsDelivery nextForm = new GoodsDelivery();
             nextForm.Show();
         }
+
+        private void manageBillsButton_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            ManageGoodsDelivery nextForm = new ManageGoodsDelivery();
+            nextForm.Show();
+        }
+
+        private void logoutButton_Click(object sender, EventArgs e)
+        {
+            DialogResult dr = MessageBox.Show(
+                "Do you really want to leave? :(", "Log Out", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (dr == DialogResult.Yes)
+            {
+                this.Hide();
+                LogIn nextForm = new LogIn();
+                nextForm.Show();
+                return;
+            }
+            else
+            {
+                return;
+            }
+        }
     }
 }

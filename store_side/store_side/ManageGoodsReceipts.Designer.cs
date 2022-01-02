@@ -426,7 +426,7 @@
             this.Controls.Add(this.productTable);
             this.Name = "ManageGoodsReceipts";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Goods Receipts Management";
+            this.Text = "Manage Goods Receipts";
             this.Load += new System.EventHandler(this.ManageGoodsReceipts_Load);
             ((System.ComponentModel.ISupportInitialize)(this.productTable)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.productBindingSource)).EndInit();

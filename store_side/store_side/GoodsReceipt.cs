@@ -247,6 +247,7 @@ namespace store_side
                                 receiptName.Text = "";
                                 productTable.Rows.Clear();
                                 productTable.Refresh();
+                                return;
                             }
                         }
                         catch (System.Data.ConstraintException)

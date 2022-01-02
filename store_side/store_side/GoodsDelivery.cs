@@ -206,11 +206,12 @@ namespace store_side
                     {
                         try
                         {
-                            /*cnpmDataSet1.product2 products = this.cnpmDataSet1.product2.Addproduct2Row(
-                                row.Cells[0].Value.ToString() + billID.Text, row.Cells[1].Value.ToString(),
+                            cnpmDataSet1.product2Row products = this.cnpmDataSet1.product2.Addproduct2Row(
+                                row.Cells[0].Value.ToString()+"_"+ billID.Text, row.Cells[1].Value.ToString(),
                                 Int32.Parse(row.Cells[2].Value.ToString()), Int32.Parse(row.Cells[3].Value.ToString()),
                                 billID.Text);
-                            this.product2TableAdapter.Update(products);*/
+                            this.product2TableAdapter.Update(products);
+
                         }
                         catch (System.Data.ConstraintException)
                         {
@@ -218,6 +219,16 @@ namespace store_side
                             return;
                         }
                     }
+                    MessageBox.Show("Add Succeed!");
+
+                    billTable.Rows.Clear();
+                    billTable.Refresh();
+
+                    billID.Text = "";
+                    billName.Text = "";
+                    billAdress.Text = "";
+                    billPrice.Text = "0";
+                    return;
 
                 }
                 catch (System.Data.ConstraintException)
