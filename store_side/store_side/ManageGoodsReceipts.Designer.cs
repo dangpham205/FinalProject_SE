@@ -77,6 +77,7 @@
             this.productTable.AllowUserToAddRows = false;
             this.productTable.AllowUserToDeleteRows = false;
             this.productTable.AutoGenerateColumns = false;
+            this.productTable.BackgroundColor = System.Drawing.Color.Violet;
             this.productTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.productTable.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.prodidDataGridViewTextBoxColumn,
@@ -169,6 +170,7 @@
             this.receiptTable.AllowUserToAddRows = false;
             this.receiptTable.AllowUserToDeleteRows = false;
             this.receiptTable.AutoGenerateColumns = false;
+            this.receiptTable.BackgroundColor = System.Drawing.Color.Violet;
             this.receiptTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.receiptTable.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.receiptidDataGridViewTextBoxColumn,

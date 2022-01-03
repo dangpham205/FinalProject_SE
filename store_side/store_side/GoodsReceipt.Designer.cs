@@ -196,11 +196,11 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(387, 121);
+            this.label6.Location = new System.Drawing.Point(360, 121);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(44, 17);
+            this.label6.Size = new System.Drawing.Size(71, 17);
             this.label6.TabIndex = 3;
-            this.label6.Text = "Price:";
+            this.label6.Text = "Sell Price:";
             // 
             // label5
             // 
@@ -244,6 +244,7 @@
             // 
             // productTable
             // 
+            this.productTable.BackgroundColor = System.Drawing.Color.Violet;
             this.productTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.productTable.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,

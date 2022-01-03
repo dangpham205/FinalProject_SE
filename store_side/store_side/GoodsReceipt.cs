@@ -253,9 +253,10 @@ namespace store_side
                         catch (System.Data.ConstraintException)
                         {
                             MessageBox.Show("There is already a Product with the ID: " + row.Cells[0].Value.ToString());
-                            return;
+                            continue;
                         }
                     }
+                    return;
 
                 }
                 catch (System.Data.ConstraintException)

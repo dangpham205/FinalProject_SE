@@ -61,5 +61,12 @@ namespace store_side
                 return;
             }
         }
+
+        private void stockButton_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            StockManagementandIncome nextForm = new StockManagementandIncome();
+            nextForm.Show();
+        }
     }
 }

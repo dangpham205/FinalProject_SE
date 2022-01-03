@@ -131,7 +131,7 @@ namespace store_side
             }
             else
             {
-                MessageBox.Show("Please select a bill to delete.");
+                MessageBox.Show("Please select a note to remove.");
                 return;
             }
         }

@@ -26,3 +26,4 @@ C:\Users\Admin\Desktop\FinalProject_SE-main\store_side\store_side\obj\Debug\stor
 C:\Users\Admin\Desktop\Study\3RD Công Nghệ Phần Mềm\cúi kì\store_side\store_side\obj\Debug\store_side.ManageGoodsReceipts.resources
 C:\Users\Admin\Desktop\Study\3RD Công Nghệ Phần Mềm\cúi kì\store_side\store_side\obj\Debug\store_side.GoodsDelivery.resources
 C:\Users\Admin\Desktop\Study\3RD Công Nghệ Phần Mềm\cúi kì\store_side\store_side\obj\Debug\store_side.ManageGoodsDelivery.resources
+C:\Users\Admin\Desktop\Study\3RD Công Nghệ Phần Mềm\cúi kì\store_side\store_side\obj\Debug\store_side.StockManagementandIncome.resources

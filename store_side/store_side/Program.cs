@@ -16,7 +16,7 @@ namespace store_side
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Main());
+            Application.Run(new LogIn());
         }
     }
 }

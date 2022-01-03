@@ -191,6 +191,11 @@ namespace store_side
 
         private void updateProductButton_Click(object sender, EventArgs e)
         {
+            if(productTable.SelectedCells.Count == 0)
+            {
+                MessageBox.Show("Please select a product to update.");
+                return;
+            }
             int i;
             if (productID.Text != "" && productName.Text != "" && productUnit.Text != "" && productPrice.Text != "" && productCost.Text != "")
             {

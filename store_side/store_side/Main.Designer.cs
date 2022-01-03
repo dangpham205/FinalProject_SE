@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             this.receiptButton = new System.Windows.Forms.Button();
             this.manageReceiptsButton = new System.Windows.Forms.Button();
             this.deliveryButton = new System.Windows.Forms.Button();
@@ -35,25 +36,28 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.logoutButton = new System.Windows.Forms.Label();
+            this.stockButton = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // receiptButton
             // 
             this.receiptButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.receiptButton.Location = new System.Drawing.Point(173, 210);
+            this.receiptButton.Location = new System.Drawing.Point(239, 198);
             this.receiptButton.Name = "receiptButton";
-            this.receiptButton.Size = new System.Drawing.Size(307, 121);
+            this.receiptButton.Size = new System.Drawing.Size(307, 93);
             this.receiptButton.TabIndex = 0;
-            this.receiptButton.Text = "CREATE GOODS RECEIPTS";
+            this.receiptButton.Text = "CREATE GOODS RECEIPT";
             this.receiptButton.UseVisualStyleBackColor = true;
             this.receiptButton.Click += new System.EventHandler(this.receiptButton_Click);
             // 
             // manageReceiptsButton
             // 
             this.manageReceiptsButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.manageReceiptsButton.Location = new System.Drawing.Point(570, 210);
+            this.manageReceiptsButton.Location = new System.Drawing.Point(657, 198);
             this.manageReceiptsButton.Name = "manageReceiptsButton";
-            this.manageReceiptsButton.Size = new System.Drawing.Size(400, 121);
+            this.manageReceiptsButton.Size = new System.Drawing.Size(307, 93);
             this.manageReceiptsButton.TabIndex = 1;
             this.manageReceiptsButton.Text = "MANAGE GOODS RECEIPTS";
             this.manageReceiptsButton.UseVisualStyleBackColor = true;
@@ -62,19 +66,19 @@
             // deliveryButton
             // 
             this.deliveryButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.deliveryButton.Location = new System.Drawing.Point(173, 413);
+            this.deliveryButton.Location = new System.Drawing.Point(239, 374);
             this.deliveryButton.Name = "deliveryButton";
-            this.deliveryButton.Size = new System.Drawing.Size(307, 121);
+            this.deliveryButton.Size = new System.Drawing.Size(307, 93);
             this.deliveryButton.TabIndex = 2;
-            this.deliveryButton.Text = "CREATE GOODS DELIVERY NOTES";
+            this.deliveryButton.Text = "CREATE GOODS DELIVERY NOTE";
             this.deliveryButton.UseVisualStyleBackColor = true;
             this.deliveryButton.Click += new System.EventHandler(this.deliveryButton_Click);
             // 
             // manageBillsButton
             // 
-            this.manageBillsButton.Location = new System.Drawing.Point(570, 413);
+            this.manageBillsButton.Location = new System.Drawing.Point(657, 374);
             this.manageBillsButton.Name = "manageBillsButton";
-            this.manageBillsButton.Size = new System.Drawing.Size(400, 121);
+            this.manageBillsButton.Size = new System.Drawing.Size(307, 93);
             this.manageBillsButton.TabIndex = 3;
             this.manageBillsButton.Text = "MANAGE GOODS DELIVERY NOTES";
             this.manageBillsButton.UseVisualStyleBackColor = true;
@@ -113,12 +117,34 @@
             this.logoutButton.Text = "Log Out";
             this.logoutButton.Click += new System.EventHandler(this.logoutButton_Click);
             // 
+            // stockButton
+            // 
+            this.stockButton.Location = new System.Drawing.Point(448, 542);
+            this.stockButton.Name = "stockButton";
+            this.stockButton.Size = new System.Drawing.Size(307, 90);
+            this.stockButton.TabIndex = 7;
+            this.stockButton.Text = "STOCK AND INCOME";
+            this.stockButton.UseVisualStyleBackColor = true;
+            this.stockButton.Click += new System.EventHandler(this.stockButton_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(-86, -63);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(304, 294);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 8;
+            this.pictureBox1.TabStop = false;
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(1182, 753);
+            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.stockButton);
             this.Controls.Add(this.logoutButton);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -129,6 +155,7 @@
             this.Name = "Main";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Home";
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -143,5 +170,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label logoutButton;
+        private System.Windows.Forms.Button stockButton;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

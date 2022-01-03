@@ -53,6 +53,7 @@
             this.loginUsername.Name = "loginUsername";
             this.loginUsername.Size = new System.Drawing.Size(297, 22);
             this.loginUsername.TabIndex = 0;
+            this.loginUsername.Text = "admin123";
             this.loginUsername.TextChanged += new System.EventHandler(this.loginUsername_TextChanged);
             // 
             // loginPassword
@@ -61,6 +62,8 @@
             this.loginPassword.Name = "loginPassword";
             this.loginPassword.Size = new System.Drawing.Size(297, 22);
             this.loginPassword.TabIndex = 1;
+            this.loginPassword.Text = "admin123";
+            this.loginPassword.UseSystemPasswordChar = true;
             // 
             // label1
             // 
@@ -86,18 +89,19 @@
             // loginButton
             // 
             this.loginButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.loginButton.Location = new System.Drawing.Point(1029, 397);
+            this.loginButton.Location = new System.Drawing.Point(1029, 364);
             this.loginButton.Name = "loginButton";
             this.loginButton.Size = new System.Drawing.Size(122, 48);
-            this.loginButton.TabIndex = 4;
+            this.loginButton.TabIndex = 1;
             this.loginButton.Text = "LOG IN";
             this.loginButton.UseVisualStyleBackColor = true;
-            this.loginButton.Click += new System.EventHandler(this.loginButton_Click);
+            this.loginButton.Click += new System.EventHandler(this.loginButton_Enter);
+            this.loginButton.Enter += new System.EventHandler(this.loginButton_Enter);
             // 
             // exitButton
             // 
             this.exitButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.exitButton.Location = new System.Drawing.Point(854, 397);
+            this.exitButton.Location = new System.Drawing.Point(854, 364);
             this.exitButton.Name = "exitButton";
             this.exitButton.Size = new System.Drawing.Size(122, 48);
             this.exitButton.TabIndex = 5;

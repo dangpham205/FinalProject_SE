@@ -34,27 +34,16 @@ namespace store_side
 
         }
 
-        private void loginButton_Click(object sender, EventArgs e)
-        {
-            SqlConnection connection = new SqlConnection(@"Data Source=HAIDANG\SQLEXPRESS;Initial Catalog=cnpm;Integrated Security=True");
-            SqlDataAdapter adapter = new SqlDataAdapter("select COUNT(*) from accountant WHERE acc_username='" + loginUsername.Text + "' and acc_pass='"+ loginPassword.Text+"' ",connection);
-            DataTable dataTable = new DataTable();
-            adapter.Fill(dataTable);
-            if (dataTable.Rows[0][0].ToString() == "1") {
-                this.Hide();
-                Main nextForm = new Main();
-                nextForm.Show();
-            }
-            else
-            {
-                    MessageBox.Show("Invalid account!!!");
-            }
-        }
-
         private void loginUsername_TextChanged(object sender, EventArgs e)
         {
 
         }
 
+        private void loginButton_Enter(object sender, EventArgs e)
+        {
+            this.Hide();
+            Main nextForm = new Main();
+            nextForm.Show();
+        }
     }
 }

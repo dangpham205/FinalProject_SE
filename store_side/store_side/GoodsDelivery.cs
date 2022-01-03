@@ -43,12 +43,12 @@ namespace store_side
 
         }
 
-        private void productTable_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        public void productTable_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
         {
             productTable.ClearSelection();
         }
 
-        private void billTable_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        public void billTable_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
         {
             billTable.ClearSelection();
         }
@@ -198,10 +198,17 @@ namespace store_side
             {
                 try
                 {
-                    cnpmDataSet1.billRow bill = this.cnpmDataSet1.bill.AddbillRow(
-                        billID.Text, billName.Text, billAdress.Text, DateTime.Now.ToString("M/d/yyyy"),
+                    try
+                    {
+                        cnpmDataSet1.billRow bill = this.cnpmDataSet1.bill.AddbillRow(
+                        billID.Text, billName.Text, billAdress.Text.ToString(), DateTime.Now.ToString("M/d/yyyy"),
                         billDelivery.Text, billPayment.Text, Int32.Parse(billPrice.Text));
-                    this.billTableAdapter.Update(bill);
+                        this.billTableAdapter.Update(bill);
+                    }
+                    catch (ArgumentException)
+                    {
+
+                    }
                     foreach (DataGridViewRow row in billTable.Rows)
                     {
                         try

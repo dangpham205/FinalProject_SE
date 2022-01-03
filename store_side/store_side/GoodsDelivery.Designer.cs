@@ -116,6 +116,7 @@
             this.productTable.AllowUserToAddRows = false;
             this.productTable.AllowUserToDeleteRows = false;
             this.productTable.AutoGenerateColumns = false;
+            this.productTable.BackgroundColor = System.Drawing.Color.Violet;
             this.productTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.productTable.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.prodidDataGridViewTextBoxColumn,
@@ -186,6 +187,7 @@
             // 
             this.billTable.AllowUserToAddRows = false;
             this.billTable.AllowUserToDeleteRows = false;
+            this.billTable.BackgroundColor = System.Drawing.Color.Violet;
             this.billTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.billTable.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
