@@ -211,6 +211,21 @@ namespace store_side
                                 Int32.Parse(row.Cells[2].Value.ToString()), Int32.Parse(row.Cells[3].Value.ToString()),
                                 billID.Text);
                             this.product2TableAdapter.Update(products);
+                            foreach (DataGridViewRow stock in productTable.Rows)
+                            {
+                                if (row.Cells[0].Value.ToString().Equals(stock.Cells[0].Value.ToString()))
+                                {
+                                    cnpmDataSet.productRow product = (cnpmDataSet.productRow)this.cnpmDataSet.product.Rows[productTable.Rows.IndexOf(stock)];
+                                    int oldQtt = Int32.Parse(product.prod_unit);
+                                    int newQtt = oldQtt - Int32.Parse(row.Cells[2].Value.ToString());
+                                    product.prod_unit = newQtt.ToString();
+                                    this.productTableAdapter.Update(product);
+                                }
+                                else
+                                {
+                                    continue;
+                                }
+                            }
 
                         }
                         catch (System.Data.ConstraintException)
