@@ -5,7 +5,6 @@ create table accountant
 	acc_username NVARCHAR (20)PRIMARY KEY,
 	acc_pass NVARCHAR(20),
 )
-
 create table receipt
 (
 	receipt_id NVARCHAR(20) not null PRIMARY KEY,
@@ -41,21 +40,4 @@ create table bill
 	bill_total INT not null,
 )
 
-select * from bill
-select * from product2
-delete from bill
-delete from product2
-drop table bill
-drop table product2
 
-
-
-drop database cnpm
-drop table accountant
-select * from accountant
-select * from receipt
-select * from product
-delete from receipt
-delete from product
-drop table receipt
-drop table product
